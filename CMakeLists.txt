@@ -8,6 +8,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_PREFIX_PATH "/Users/jamesxsc/Qt/6.7.0/macos/lib/cmake")
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
 find_package(Qt6 COMPONENTS
         Core
         Gui
@@ -15,7 +17,12 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(coffee main.cpp
-        mainwindow.cpp)
+        mainwindow.cpp
+        initialsettings.cpp
+        coffeeinput.cpp
+        coffeeinput.h
+        coffeeinput.ui
+)
 
 target_link_libraries(coffee
         Qt::Core
