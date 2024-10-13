@@ -6,6 +6,7 @@
 #define COFFEE_MAINWINDOW_H
 
 #include <QMainWindow>
+#include "coffeesetup.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +20,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow() override;
+
+    CoffeeSetup setup;
 
 private:
     Ui::MainWindow *ui;

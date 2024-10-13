@@ -4,8 +4,10 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_CoffeeInput.h" resolved
 
+#include <QStackedWidget>
 #include "coffeeinput.h"
 #include "ui_CoffeeInput.h"
+#include "mainwindow.h"
 
 
 CoffeeInput::CoffeeInput(QWidget *parent) :
@@ -15,4 +17,15 @@ CoffeeInput::CoffeeInput(QWidget *parent) :
 
 CoffeeInput::~CoffeeInput() {
     delete ui;
+}
+
+void CoffeeInput::nextPage() {
+    auto *parent = qobject_cast<QStackedWidget *>(parentWidget());
+    if (parent) {
+        parent->setCurrentIndex(parent->currentIndex() + 1);
+        auto *mainWindow = qobject_cast<MainWindow *>(window());
+        if (mainWindow) {
+            mainWindow->setup.addMeasurement(ui->inputGrindWeight->value(), ui->inputExtractionTime->value());
+        }
+    }
 }

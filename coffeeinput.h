@@ -22,6 +22,9 @@ public:
 
 private:
     Ui::CoffeeInput *ui;
+
+private slots:
+    void nextPage();
 };
 
 

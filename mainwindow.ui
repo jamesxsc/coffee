@@ -17,8 +17,8 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>140</y>
+      <x>80</x>
+      <y>80</y>
       <width>351</width>
       <height>401</height>
      </rect>
@@ -26,8 +26,9 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="InitialSettings" name="page"/>
+    <widget class="InitialSettings" name="page_1"/>
     <widget class="CoffeeInput" name="page_2"/>
+    <widget class="SettingsUpdate" name="page_3"/>
    </widget>
   </widget>
  </widget>
@@ -41,7 +42,13 @@
   <customwidget>
    <class>CoffeeInput</class>
    <extends>QWidget</extends>
-   <header location="global">coffeeinput.h</header>
+   <header>coffeeinput.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SettingsUpdate</class>
+   <extends>QWidget</extends>
+   <header>settingsupdate.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -22,6 +22,10 @@ add_executable(coffee main.cpp
         coffeeinput.cpp
         coffeeinput.h
         coffeeinput.ui
+        coffeesetup.h
+        settingsupdate.cpp
+        settingsupdate.h
+        settingsupdate.ui
 )
 
 target_link_libraries(coffee
