@@ -22,10 +22,10 @@ CoffeeInput::~CoffeeInput() {
 void CoffeeInput::nextPage() {
     auto *parent = qobject_cast<QStackedWidget *>(parentWidget());
     if (parent) {
-        parent->setCurrentIndex(parent->currentIndex() + 1);
         auto *mainWindow = qobject_cast<MainWindow *>(window());
         if (mainWindow) {
             mainWindow->setup.addMeasurement(ui->inputGrindWeight->value(), ui->inputExtractionTime->value());
+            parent->setCurrentIndex(parent->currentIndex() + 1);
         }
     }
 }

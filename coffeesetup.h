@@ -40,6 +40,32 @@ public:
         CoffeeMeasurement m(grindWeight, extractionTime);
         this->measurements.push_back(m);
     }
+
+    double computeFineCoarse() {
+        // since fine/coarse in an arbitrary number depending on grinder burrs etc, we rely on interpolation
+        // if we only have one measurement we simply return the previous val
+        // it would be helpful to at least give an up/down indication based on the extraction time
+        if (measurements.size() <= 1) {
+            return settings.back().fineCoarse;
+        }
+
+        // otherwise, perform interpolation
+        double deltaExtractionTime = measurements.back().extractionTime - measurements.rbegin()[1].extractionTime;
+        double deltaFineCoarse = settings.back().fineCoarse - settings.rbegin()[1].fineCoarse;
+
+        double grad = deltaExtractionTime / deltaFineCoarse;
+        double icept = measurements.back().extractionTime - grad * settings.back().fineCoarse;
+
+        return (targetTime - icept) / grad;
+    }
+
+    double computeGrindTime() {
+        double prevTime = settings.back().grindTime;
+        double prevWeight = measurements.back().grindWeight;
+
+        return prevTime * (targetWeight / prevWeight);
+    }
+
 };
 
 #endif //COFFEE_COFFEESETUP_H

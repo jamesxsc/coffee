@@ -21,13 +21,13 @@ InitialSettings::~InitialSettings() {
 }
 
 void InitialSettings::nextPage() {
-    auto* parent = qobject_cast<QStackedWidget*>(parentWidget());
+    auto *parent = qobject_cast<QStackedWidget *>(parentWidget());
     if (parent) {
-        parent->setCurrentIndex(parent->currentIndex() + 1);
-        auto* mainWindow = qobject_cast<MainWindow*>(window());
+        auto *mainWindow = qobject_cast<MainWindow *>(window());
         if (mainWindow) {
             // maybe this should call a signal... unsure
             mainWindow->setup.addSettings(ui->inputFineCoarse->value(), ui->inputGrindTime->value());
+            parent->setCurrentIndex(parent->currentIndex() + 1);
         }
     }
 }
