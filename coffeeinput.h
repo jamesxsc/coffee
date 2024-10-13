@@ -23,6 +23,8 @@ public:
 private:
     Ui::CoffeeInput *ui;
 
+    void showEvent(QShowEvent *event) override;
+
 private slots:
     void nextPage();
 };

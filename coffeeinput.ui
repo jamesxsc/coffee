@@ -16,8 +16,8 @@
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>50</y>
+     <x>130</x>
+     <y>20</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -82,6 +82,32 @@
    </property>
    <property name="text">
     <string>Ensure weight is target before extracting</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tipFineCoarse">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>50</y>
+     <width>231</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fine/coarse should be</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tipGrindTime">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>80</y>
+     <width>271</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Grind time should be</string>
    </property>
   </widget>
  </widget>

@@ -19,6 +19,19 @@ CoffeeInput::~CoffeeInput() {
     delete ui;
 }
 
+void CoffeeInput::showEvent(QShowEvent *event) {
+    auto *mainWindow = qobject_cast<MainWindow *>(window());
+    if (mainWindow) {
+        CoffeeSetup setup = mainWindow->setup;
+        double currentFineCoarse = setup.settings.back().fineCoarse;
+        double currentGrindTime = setup.settings.back().grindTime;
+
+        ui->tipFineCoarse->setText(QString("Fine/coarse should be set to %1").arg(currentFineCoarse));
+        ui->tipGrindTime->setText(QString("Grind time should be set to %1").arg(currentGrindTime));
+    }
+}
+
+// this widget and SettingsUpdate switch from one to the other
 void CoffeeInput::nextPage() {
     auto *parent = qobject_cast<QStackedWidget *>(parentWidget());
     if (parent) {

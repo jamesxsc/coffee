@@ -24,6 +24,9 @@ private:
     Ui::SettingsUpdate *ui;
 
     void showEvent(QShowEvent *event) override;
+
+private slots:
+    void nextPage();
 };
 
 

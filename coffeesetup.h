@@ -22,6 +22,8 @@ struct CoffeeSettings {
     CoffeeSettings(double fineCoarse, double grindTime) : fineCoarse(fineCoarse), grindTime(grindTime) {}
 };
 
+// todo make all this robust to vector lengths and allow deletion/undo
+
 struct CoffeeSetup {
     // we want to guarantee that the indices align, that is, a coffee at index i was made with the settings at index i
     std::vector<CoffeeMeasurement> measurements;
