@@ -6,110 +6,113 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>233</width>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CoffeeInput</string>
   </property>
-  <widget class="QLabel" name="title">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>20</y>
-     <width>141</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Enter first coffee stats</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>220</y>
-     <width>161</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Compute new settings</string>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="inputGrindWeight">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>150</y>
-     <width>101</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="suffix">
-    <string> g</string>
-   </property>
-   <property name="singleStep">
-    <double>0.050000000000000</double>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="inputExtractionTime">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>150</y>
-     <width>101</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="suffix">
-    <string> seconds</string>
-   </property>
-   <property name="singleStep">
-    <double>0.050000000000000</double>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tip">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>170</y>
-     <width>271</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Ensure weight is target before extracting</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tipFineCoarse">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>50</y>
-     <width>231</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Fine/coarse should be</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tipGrindTime">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>80</y>
-     <width>271</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Grind time should be</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>1</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>1</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="title">
+       <property name="text">
+        <string>**Enter first coffee stats**</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::TextFormat::MarkdownText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="tipGrindTime">
+       <property name="text">
+        <string>Grind time should be</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="tipFineCoarse">
+       <property name="text">
+        <string>Fine/coarse should be</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QDoubleSpinBox" name="inputGrindWeight">
+       <property name="suffix">
+        <string> g</string>
+       </property>
+       <property name="singleStep">
+        <double>0.050000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="tip">
+       <property name="text">
+        <string>Ensure weight is target before extracting</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QDoubleSpinBox" name="inputExtractionTime">
+       <property name="suffix">
+        <string> seconds</string>
+       </property>
+       <property name="singleStep">
+        <double>0.050000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Compute new settings</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections>
