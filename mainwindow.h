@@ -32,7 +32,7 @@ private:
 
 
 private slots:
-
+    void tableDelete();
 };
 
 

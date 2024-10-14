@@ -9,7 +9,7 @@ SetupTableModel::SetupTableModel(QObject *parent) : QAbstractTableModel(parent) 
 }
 
 int SetupTableModel::rowCount(const QModelIndex &) const {
-    return (int) setup->settings.size();
+    return (int) setup->entries();
 }
 
 int SetupTableModel::columnCount(const QModelIndex &) const {
@@ -21,19 +21,25 @@ QVariant SetupTableModel::data(const QModelIndex &index, int role) const {
         return {};
     }
 
+    CoffeeSettings* latestSettings = setup->latestSettings();
+    if (!latestSettings) {
+        return {};
+    }
+    CoffeeMeasurement* latestMeasurement = setup->latestMeasurement();
+
     switch (index.column()) {
         case 0:
-            return setup->settings[index.row()].fineCoarse;
+            return latestSettings->fineCoarse;
         case 1:
-            return setup->settings[index.row()].grindTime;
+            return latestSettings->grindTime;
         case 2:
-            if (setup->measurements.size() > index.row())
-                return setup->measurements[index.row()].extractionTime;
+            if (latestMeasurement)
+                return latestMeasurement->extractionTime;
             else
-                return "-";
+                return "-"; // display as empty
         case 3:
-            if (setup->measurements.size() > index.row())
-                return setup->measurements[index.row()].grindWeight;
+            if (latestMeasurement)
+                return latestMeasurement->grindWeight;
             else
                 return "-";
         default:

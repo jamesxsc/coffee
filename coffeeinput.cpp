@@ -23,11 +23,10 @@ void CoffeeInput::showEvent(QShowEvent *event) {
     auto *mainWindow = qobject_cast<MainWindow *>(window());
     if (mainWindow) {
         CoffeeSetup setup = mainWindow->setup;
-        double currentFineCoarse = setup.settings.back().fineCoarse;
-        double currentGrindTime = setup.settings.back().grindTime;
+        CoffeeSettings* latestSettings = setup.latestSettings();
 
-        ui->tipFineCoarse->setText(QString("Fine/coarse should be set to %1").arg(currentFineCoarse));
-        ui->tipGrindTime->setText(QString("Grind time should be set to %1").arg(currentGrindTime));
+        ui->tipFineCoarse->setText(QString("Fine/coarse should be set to %1").arg(latestSettings->fineCoarse));
+        ui->tipGrindTime->setText(QString("Grind time should be set to %1").arg(latestSettings->grindTime));
     }
 }
 

@@ -68,6 +68,16 @@
       </property>
      </widget>
     </item>
+    <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+     <widget class="QToolButton" name="buttonTableDelete">
+      <property name="text">
+       <string>...</string>
+      </property>
+      <property name="icon">
+       <iconset theme="user-trash"/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
@@ -92,8 +102,25 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonTableDelete</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tableDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>446</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
-  <slot>iteratePress()</slot>
+  <slot>tableDelete()</slot>
  </slots>
 </ui>

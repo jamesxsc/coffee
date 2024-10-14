@@ -19,6 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     setupTableModel.setup = &setup;
 
     ui->tableView->setModel(&setupTableModel);
+
+    // todo design decision required - how many prev measurements_ do we use and how does deleting impact results? if so to 1), just recalc
+
+}
+
+void MainWindow::tableDelete() {
+    auto selectedRows = ui->tableView->selectionModel()->selectedRows();
+    for (auto &r : selectedRows) {
+        int i = r.row();
+        setup.deleteAt(i);
+    }
 }
 
 void MainWindow::updateTable() {
