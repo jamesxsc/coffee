@@ -18,11 +18,11 @@ public:
     CoffeeSetup* setup = nullptr;
     explicit SetupTableModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex & = QModelIndex()) const override;
-    int columnCount(const QModelIndex & = QModelIndex()) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &index) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &index) const override;
 
-    QVariant data(const QModelIndex &index, int role) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
 //    QHash<int, QByteArray> roleNames() const override;
 

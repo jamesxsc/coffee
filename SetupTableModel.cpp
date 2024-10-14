@@ -21,25 +21,21 @@ QVariant SetupTableModel::data(const QModelIndex &index, int role) const {
         return {};
     }
 
-    CoffeeSettings* latestSettings = setup->latestSettings();
-    if (!latestSettings) {
-        return {};
-    }
-    CoffeeMeasurement* latestMeasurement = setup->latestMeasurement();
+    int row = index.row();
 
     switch (index.column()) {
         case 0:
-            return latestSettings->fineCoarse;
+            return setup->settingsAt(row).fineCoarse;
         case 1:
-            return latestSettings->grindTime;
+            return setup->settingsAt(row).grindTime;
         case 2:
-            if (latestMeasurement)
-                return latestMeasurement->extractionTime;
+            if (row < setup->entries() - 1 || setup->latestHasMeasurement())
+                return setup->measurementAt(row).extractionTime;
             else
                 return "-"; // display as empty
         case 3:
-            if (latestMeasurement)
-                return latestMeasurement->grindWeight;
+            if (row < setup->entries() - 1 || setup->latestHasMeasurement())
+                return setup->measurementAt(row).grindWeight;
             else
                 return "-";
         default:

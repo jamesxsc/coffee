@@ -25,11 +25,14 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::tableDelete() {
-    auto selectedRows = ui->tableView->selectionModel()->selectedRows();
-    for (auto &r : selectedRows) {
-        int i = r.row();
-        setup.deleteAt(i);
-    }
+    auto selected = ui->tableView->selectionModel()->selectedIndexes();
+
+    // just delete 1 - avoid awkward indexing
+    if (selected.empty()) return;
+
+    setup.deleteAt(selected[0].row());
+
+    this->updateTable();
 }
 
 void MainWindow::updateTable() {

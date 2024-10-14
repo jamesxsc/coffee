@@ -83,11 +83,8 @@ public:
         return (int) settings_.size();
     }
 
-    CoffeeMeasurement* latestMeasurement() {
-        if (measurements_.empty()) {
-            return nullptr;
-        }
-        return &measurements_.back();
+    bool latestHasMeasurement() {
+        return measurements_.size() == settings_.size();
     }
 
     CoffeeSettings* latestSettings() {
@@ -106,6 +103,20 @@ public:
         if (i < measurements_.size()) {
             measurements_.erase(measurements_.begin() + i);
         }
+    }
+
+    [[nodiscard]] CoffeeSettings settingsAt(size_t i) const {
+        if (i >= settings_.size()) {
+            throw std::range_error("Index out of range");
+        }
+        return settings_[i];
+    }
+
+    [[nodiscard]] CoffeeMeasurement measurementAt(size_t i) const {
+        if (i >= measurements_.size()) {
+            throw std::range_error("Index out of range");
+        }
+        return measurements_[i];
     }
 };
 
