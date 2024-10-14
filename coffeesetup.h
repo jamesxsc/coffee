@@ -53,7 +53,7 @@ public:
         this->measurements_.push_back(m);
     }
 
-    double computeFineCoarse() {
+    double computeFineCoarse() const {
         // since fine/coarse in an arbitrary number depending on grinder burrs etc, we rely on interpolation
         // if we only have one measurement we simply return the previous val
         // it would be helpful to at least give an up/down indication based on the extraction time
@@ -71,7 +71,7 @@ public:
         return (targetTime_ - icept) / grad;
     }
 
-    double computeGrindTime() {
+    [[nodiscard]] double computeGrindTime() const {
         double prevTime = settings_.back().grindTime;
         double prevWeight = measurements_.back().grindWeight;
 
@@ -79,11 +79,11 @@ public:
     }
 
     // note that the length of measurements may be 1 smaller
-    int entries() {
+    [[nodiscard]] int entries() const {
         return (int) settings_.size();
     }
 
-    bool latestHasMeasurement() {
+    [[nodiscard]] bool latestHasMeasurement() const {
         return measurements_.size() == settings_.size();
     }
 
@@ -92,6 +92,13 @@ public:
             return nullptr;
         }
         return &settings_.back();
+    }
+
+    CoffeeMeasurement* latestMeasurement() {
+        if (measurements_.empty()) {
+            return nullptr;
+        }
+        return &measurements_.back();
     }
 
     void deleteAt(int i) {

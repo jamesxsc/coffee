@@ -27,6 +27,11 @@ void SettingsUpdate::showEvent(QShowEvent *event) {
         double grindTime = setup.computeGrindTime();
 
         ui->inputFineCoarse->setValue(fineCoarse);
+        if (setup.entries() == 1)
+            ui->tipFineCoarse->setText(QString("Make %1").arg(
+                    setup.getTargetTime() < setup.latestMeasurement()->extractionTime ? "finer" : "coarser"));
+        else
+            ui->tipFineCoarse->setText("");
         ui->inputGrindTime->setValue(grindTime);
     }
 }
