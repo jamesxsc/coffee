@@ -42,6 +42,7 @@ void SettingsUpdate::nextPage() {
         if (mainWindow) {
             mainWindow->setup.addSettings(ui->inputFineCoarse->value(), ui->inputGrindTime->value());
             parent->setCurrentIndex(parent->currentIndex() - 1);
+            mainWindow->updateTable();
         }
     }
 }

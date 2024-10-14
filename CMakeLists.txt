@@ -26,6 +26,8 @@ add_executable(coffee main.cpp
         settingsupdate.cpp
         settingsupdate.h
         settingsupdate.ui
+        SetupTableModel.cpp
+        SetupTableModel.h
 )
 
 target_link_libraries(coffee

@@ -39,6 +39,7 @@ void CoffeeInput::nextPage() {
         if (mainWindow) {
             mainWindow->setup.addMeasurement(ui->inputGrindWeight->value(), ui->inputExtractionTime->value());
             parent->setCurrentIndex(parent->currentIndex() + 1);
+            mainWindow->updateTable();
         }
     }
 }

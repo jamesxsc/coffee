@@ -7,6 +7,7 @@
 
 #include <QMainWindow>
 #include "coffeesetup.h"
+#include "SetupTableModel.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -23,8 +24,12 @@ public:
 
     CoffeeSetup setup;
 
+    void updateTable();
+
 private:
     Ui::MainWindow *ui;
+    SetupTableModel setupTableModel;
+
 
 private slots:
 

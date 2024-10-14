@@ -7,6 +7,7 @@
 #include <QAbstractButton>
 #include "mainwindow.h"
 #include "ui_MainWindow.h"
+#include "SetupTableModel.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,6 +15,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->stackedWidget->setCurrentIndex(0);
+
+    setupTableModel.setup = &setup;
+
+    ui->tableView->setModel(&setupTableModel);
+}
+
+void MainWindow::updateTable() {
+    setupTableModel.layoutChanged();
+    ui->tableView->update();
 }
 
 MainWindow::~MainWindow() {

@@ -28,6 +28,7 @@ void InitialSettings::nextPage() {
             // maybe this should call a signal... unsure
             mainWindow->setup.addSettings(ui->inputFineCoarse->value(), ui->inputGrindTime->value());
             parent->setCurrentIndex(parent->currentIndex() + 1);
+            mainWindow->updateTable();
         }
     }
 }
